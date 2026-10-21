@@ -1,1 +1,46 @@
 ************CheckList**********************
+Corrección 1: REFERENCIA DE MYSQL
+
+En el archivo LibroRepositorio.cs se tenían varios errores porque no reconocía las clases necesarias para conectarse a MySQL. Al revisar el código, me di cuenta de que faltaba agregar using MySql.Data.MySqlClient; al inicio del archivo. Esta instrucción permite utilizar las clases necesarias para la conexión con MySQL. Después de agregarla, volví a compilar la solución para revisar si se corregían los errores.
+
+Corrección 2: CORREGIR VARIABLE cantidad
+
+En el archivo FrmPrestamos.cs aparecía la línea int cantidad = txtCantidad.Text;. Marcaba error porque txtCantidad.Text devuelve un texto, pero la variable cantidad necesita un número entero. Para solucionarlo, cambié la línea por int cantidad = Convert.ToInt32(txtCantidad.Text);, que permite convertir el texto ingresado en el campo a un número.
+
+Corrección 3: CORREGIR LA FECHA DEL PRÉSTAMO
+
+En el código de FrmPrestamos.cs aparecía la línea prestamo.FechaPrestamo = dtpFechaPrestamo.Text;. El problema era que se estaba utilizando la propiedad Text del control para asignar la fecha. La cambié por dtpFechaPrestamo.Value.Date, que permite obtener la fecha seleccionada en el control. Así, el programa utiliza el valor de la fecha en lugar del texto que muestra el control.
+
+Corrección 4: CORREGIR LA LLAMADA DE Registrar()
+
+En el archivo FrmPrestamos.cs aparecía la llamada repo.Registrar(prestamo), pero marcaba error porque el método Registrar() necesita dos argumentos: los datos generales del préstamo y una lista con los detalles de los libros que se van a prestar.
+
+Al revisar la interfaz IPrestamo.cs, encontré que el método estaba definido para recibir Prestamo prestamo y List<DetallePrestamo> detalles. Por eso, cambié la llamada por repo.Registrar(prestamo, detalles), para enviar los dos argumentos que necesita el método.
+
+Corrección 5: CREAR Y COMPROBAR LA BASE DE DATOS
+
+Al revisar las instrucciones del proyecto, me di cuenta de que todavía faltaba importar la base de datos en MySQL. Asi que  abrí el archivo `biblioteca.sql` en MySQL Workbench y ejecuté el script para crear la base de datos `poo_biblioteca` y cargar los datos de prueba.
+
+Después, ejecuté la consulta `SHOW TABLES;` para comprobar que se hubieran creado las tablas. Aparecieron las seis tablas: alumnos, autores, categorias, libros, prestamos y detalle_prestamo.
+
+Por último, ejecuté SELECT COUNT(*) AS total_alumnos FROM alumnos; para verificar que se hubieran cargado los datos. El resultado fue de 15 alumnos, por lo que comprobé que los registros iniciales de esta tabla se importaron correctamente.
+
+Corrección 6: CORREGIR ERRORES EN FRMLIBROS
+
+Al revisar el archivo FrmLibros.cs, encontré errores relacionados con los tipos de datos. En uno de ellos se estaba enviando un valor de tipo object a un método que necesitaba un número entero. Para corregirlo, utilicé la variable idCategoria, que ya contenía el valor convertido a entero.
+
+También encontré una asignación donde se estaba intentando guardar el texto de txtExistencia en la propiedad Existencia del libro, que necesita un número entero. Para solucionarlo, utilicé la variable existencia, donde se convierte el texto ingresado a un número.
+
+Después de realizar los cambios, recompilé toda la solución. El resultado fue de un proyecto correcto y cero errores de compilación.
+
+Corrección 7: CONFIGURAR EL PUERTO DE MYSQL
+
+Al ejecutar el programa y entrar al apartado de alumnos, apareció un error de autenticación al intentar conectarse a MySQL. Al revisar el archivo Utils.cs, encontré que la conexión no tenía especificado el puerto que estaba utilizando en MySQL Workbench. Mi conexión habitual utiliza el puerto 3307, por lo que agregué port=3307 a la cadena de conexión. Después volví a ejecutar el programa para comprobar si se solucionaba el problema de conexión.
+
+Corrección 8: CORREGIR EL NOMBRE DE LA TABLA DE ALUMNOS
+
+Después de corregir la conexión, apareció un error que indicaba que no existía la tabla alumns. Al revisar el método ObtenerTodos() del archivo AlumnoRepositorio.cs, encontré que el nombre estaba escrito incorrectamente. Lo cambié por alumnos, que es el nombre correcto de la tabla en la base de datos. Después volví a probar el apartado de alumnos.
+
+Corrección 9: CORREGIR EL NOMBRE DE LA COLUMNA DE APELLIDOS
+
+Al volver a ejecutar el programa, apareció un error que indicaba que no se encontraba la columna apellido. Revisé el archivo AlumnoRepositorio.cs y encontré que algunas consultas intentaban leer esa columna con un nombre incorrecto. En la base de datos, el campo se llama apellidos, por lo que corregí las referencias dr["apellido"] por dr["apellidos"] en los métodos donde aparecían. Finalmente, probé nuevamente el apartado de alumnos y comprobé que ya podía abrirse sin esos errores.

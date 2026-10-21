@@ -1,32 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyectos\\UNIDEP\\POO\\2026\\practica final\\ProyectoBibliotecaPOO\\BibliotecaErrores\\BibliotecaErrores.csproj": {}
+    "C:\\Users\\iclor\\source\\repos\\Biblioteca2026Ingrid\\Biblioteca\\BibliotecaErrores.csproj": {}
   },
   "projects": {
-    "D:\\Proyectos\\UNIDEP\\POO\\2026\\practica final\\ProyectoBibliotecaPOO\\BibliotecaErrores\\BibliotecaErrores.csproj": {
+    "C:\\Users\\iclor\\source\\repos\\Biblioteca2026Ingrid\\Biblioteca\\BibliotecaErrores.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyectos\\UNIDEP\\POO\\2026\\practica final\\ProyectoBibliotecaPOO\\BibliotecaErrores\\BibliotecaErrores.csproj",
+        "projectUniqueName": "C:\\Users\\iclor\\source\\repos\\Biblioteca2026Ingrid\\Biblioteca\\BibliotecaErrores.csproj",
         "projectName": "BibliotecaErrores",
-        "projectPath": "D:\\Proyectos\\UNIDEP\\POO\\2026\\practica final\\ProyectoBibliotecaPOO\\BibliotecaErrores\\BibliotecaErrores.csproj",
-        "packagesPath": "C:\\Users\\salaz\\.nuget\\packages\\",
-        "outputPath": "D:\\Proyectos\\UNIDEP\\POO\\2026\\practica final\\ProyectoBibliotecaPOO\\BibliotecaErrores\\obj\\",
+        "projectPath": "C:\\Users\\iclor\\source\\repos\\Biblioteca2026Ingrid\\Biblioteca\\BibliotecaErrores.csproj",
+        "packagesPath": "C:\\Users\\iclor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\iclor\\source\\repos\\Biblioteca2026Ingrid\\Biblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "UsingMicrosoftNETSdk": false,
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\salaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\iclor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net48"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
