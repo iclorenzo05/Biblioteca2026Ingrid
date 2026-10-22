@@ -160,7 +160,7 @@ namespace Biblioteca.Forms
                 alumno.Carrera = txtCarrera.Text.Trim();
                 alumno.Activo = chkActivo.Checked;
 
-                if (repo.Agregar(alumno))
+                if (repo.Modificar(alumno))
                 {
                     MessageBox.Show("Alumno modificado correctamente.",
                         "Biblioteca", MessageBoxButtons.OK, MessageBoxIcon.Information);

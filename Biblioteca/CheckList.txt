@@ -1,4 +1,6 @@
 ************CheckList**********************
+CORRECCIONES 21/10/2026
+
 Corrección 1: REFERENCIA DE MYSQL
 
 En el archivo LibroRepositorio.cs se tenían varios errores porque no reconocía las clases necesarias para conectarse a MySQL. Al revisar el código, me di cuenta de que faltaba agregar using MySql.Data.MySqlClient; al inicio del archivo. Esta instrucción permite utilizar las clases necesarias para la conexión con MySQL. Después de agregarla, volví a compilar la solución para revisar si se corregían los errores.
@@ -44,3 +46,29 @@ Después de corregir la conexión, apareció un error que indicaba que no exist�
 Corrección 9: CORREGIR EL NOMBRE DE LA COLUMNA DE APELLIDOS
 
 Al volver a ejecutar el programa, apareció un error que indicaba que no se encontraba la columna apellido. Revisé el archivo AlumnoRepositorio.cs y encontré que algunas consultas intentaban leer esa columna con un nombre incorrecto. En la base de datos, el campo se llama apellidos, por lo que corregí las referencias dr["apellido"] por dr["apellidos"] en los métodos donde aparecían. Finalmente, probé nuevamente el apartado de alumnos y comprobé que ya podía abrirse sin esos errores.
+
+CORRECCIONES 22/10/2026
+
+Corrección 10: CORREGIR ALUMNOS 
+En FrmAlumnos.cs, línea 163, se cambió repo.Agregar(alumno) por repo.Modificar(alumno), porque el botón Modificar intentaba registrar al alumno nuevamente. Se comprobó que los cambios se guardan correctamente en MySQL.
+
+Correción 11: AGREGAR LIBROS
+En el repositorio LibroRepositorio se modifico el parametro @existencias por @existencia, porque no coincidia con el nombre en el sql.
+
+Corrección 12: MODIFICAR ISBN
+Se corrigieron los parametros de ISBN y Titulo, porque estaban intercambiados.
+
+Corrección 13: BUSCAR LIBROS POR TITULO
+En LibroRepositorio.cs, dentro de BuscarPorTitulo(), se corrigieron las propiedades ID y Existencia, porque estaban tomando los valores de las columnas equivocadas. Se comprobó que la búsqueda funciona correctamente.
+
+Correción 14: FILTRAR POR CATEGORIA
+En la linea 238 al momento de filtar loslibros el nombre de la columna estaba mal se cambio de existencias a existencia.
+
+Correción 15: INTERCAMBIO EN OBTENER DISPONIBLES
+En la lineas 92 y 93 se hicieron las modificaciones ya que ISBN y Titulo estaban intercambiados, se asignos a sus propiedades.
+
+Correción 16: BUSCAR POR TITULO
+En las lineas 145 y 150 estaban intercambiados los datos, eran ID y existencias, se acomodo a su respectivo lugar.
+
+
+
